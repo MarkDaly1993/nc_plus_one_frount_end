@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router";
 import HomePage from "./pages/HomePage";
-import EventList from "./pages/EventsList";
+import EventListPage from "./pages/EventsList";
 import EventCard from "./pages/EventCard";
 import UserLogin from "./pages/UserLogin";
 import RegisterNewUser from "./pages/RegisterNewUser";
@@ -14,7 +14,7 @@ export default function AppRoutes() {
     <Routes>
       <Route element={<Layout />}>
         <Route index element={<HomePage />} />
-        <Route path="/events" element={<EventList />} />
+        <Route path="/events" element={<EventListPage />} />
         <Route path="/events/:eventId" element={<EventCard />} />
         <Route path="/user/login" element={<UserLogin />} />
         <Route path="/user/register" element={<RegisterNewUser />} />
