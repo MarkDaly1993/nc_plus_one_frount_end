@@ -20,3 +20,7 @@ export interface ListedEvent {
 export interface EventsResut {
   events: ListedEvent[];
 }
+
+export interface EventResult {
+  event: Event;
+}
