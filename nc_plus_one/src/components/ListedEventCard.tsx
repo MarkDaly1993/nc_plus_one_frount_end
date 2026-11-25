@@ -1,10 +1,11 @@
 import { NavLink } from "react-router";
 import type { ListedEvent } from "../types/types";
+import { formatDateTime } from "../functions/functions";
 
-function formatDateTime(dateTime: string) {
-  const formatDateTime = new Date(dateTime).toUTCString();
-  return formatDateTime;
-}
+// function formatDateTime(dateTime: string) {
+//   const formatDateTime = new Date(dateTime).toUTCString();
+//   return formatDateTime;
+// }
 
 export default function ListedEventCard(props: ListedEvent) {
   const { id, title, starts_at, ends_at, location } = props;

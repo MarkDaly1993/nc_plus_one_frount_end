@@ -17,10 +17,14 @@ export interface ListedEvent {
   location: string;
 }
 
-export interface EventsResut {
+export interface EventsResult {
   events: ListedEvent[];
 }
 
 export interface EventResult {
   event: Event;
+}
+
+export interface User {
+  id: number;
 }

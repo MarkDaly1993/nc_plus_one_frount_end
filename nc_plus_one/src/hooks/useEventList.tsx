@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
-import type { EventsResut, ListedEvent } from "../types/types";
+import type { EventsResult, ListedEvent } from "../types/types";
+import { getEvents } from "../API/events";
+import { ApiError } from "../API/client";
 
 type EventState =
   | { status: "loading" }
@@ -14,11 +16,11 @@ export function useEventList() {
   useEffect(() => {
     const loadEvents = async () => {
       try {
-        const response = await fetch("http://localhost:8000/api/events");
-        if (!response.ok) {
-          throw new Error(`Could not load events (${response.status})`);
-        }
-        const data: EventsResut = await response.json();
+        const data: EventsResult = await getEvents();
+        // if (!response.ok) {
+        //   throw new Error(`Could not load events (${response.status})`);
+        // }
+        // const data: EventsResut = await response.json();
 
         setEventsState({
           status: "success",
@@ -26,8 +28,8 @@ export function useEventList() {
         });
       } catch (err) {
         setEventsState(
-          err instanceof Error
-            ? { status: "error", message: err.message }
+          err instanceof ApiError && err.status === 404
+            ? { status: "error", message: "No events found" }
             : { status: "error", message: "Something went wrong" },
         );
       }
@@ -38,3 +40,5 @@ export function useEventList() {
 }
 
 // http://127.0.0.1:8000
+
+// fetch("http://localhost:8000/api/events")

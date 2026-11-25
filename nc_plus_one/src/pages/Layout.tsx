@@ -4,7 +4,7 @@ export default function Layout() {
   return (
     <div>
       <header>
-        <h1>Welcone to Daly Events</h1>
+        <h1>Welcome to Daly Events</h1>
         <h2>We Post Events Daily</h2>
         <NavLink
           to="/"

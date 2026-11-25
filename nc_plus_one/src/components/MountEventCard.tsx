@@ -1,4 +1,5 @@
 import type { Event } from "../types/types";
+import { formatDateTime } from "../functions/functions";
 
 export default function MouseEventCard(props: { event: Event }) {
   const {
@@ -16,11 +17,11 @@ export default function MouseEventCard(props: { event: Event }) {
     <>
       <h3>{`${title} /#${id}`}</h3>
       <p>{description}</p>
-      <p>{starts_at}</p>
-      <p>{ends_at}</p>
-      <p>{location}</p>
+      <p>{`Starting at: ${formatDateTime(starts_at)}`}</p>
+      <p>{`Finishing at: ${formatDateTime(ends_at)}`}</p>
+      <p>{`venue:${location}`}</p>
       <p>{address}</p>
-      <p>{capacity}</p>
+      <p>{`capacity: ${capacity}`}</p>
     </>
   );
 }
