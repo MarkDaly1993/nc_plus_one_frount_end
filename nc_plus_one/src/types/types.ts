@@ -9,6 +9,17 @@ export interface Event {
   capacity: number;
 }
 
+export interface Rsvp {
+  id: number;
+  attendee_id: number;
+  event_id: number;
+  created_at: string;
+}
+
+export interface RsvpAddResults {
+  rsvp: Rsvp;
+}
+
 export interface ListedEvent {
   id: number;
   title: string;
